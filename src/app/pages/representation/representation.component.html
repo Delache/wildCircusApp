@@ -1,0 +1,31 @@
+  <div class="container" id="ressources">
+    <h4 class="title">Toutes nos dates</h4>
+
+    <div class="recherche">
+      <mat-form-field appearance="outline">
+        <mat-label>Rechercher un document</mat-label>
+        <input type="search" matInput [(ngModel)]="searchWord">
+        <mat-icon (click)="search(searchWord)" matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <h4 *ngIf="representations?.length == 0">Nous passerons rapidement près de chez vous</h4>
+
+    <div class="list_documents" [ngStyle]="{'background-color': connected?'white':'$primary100'}">
+      <ul *ngFor="let data of representations; let i = index">
+        <div class="document">
+          <h4>{{data.city}}</h4>
+          <div class="contentDocument">
+            <p>{{data.date}}</p>
+            <div>
+                <div class="mat-app-background basic-container">
+                  <mat-slide-toggle class='admin' *ngIf="adminOption" [checked]="(data.full)?true:false" (change)="onChange($event, i)">Complet</mat-slide-toggle>
+                </div>
+              <mat-icon class='admin' *ngIf="adminOption" (click)='onDeleteFile(data.id, i)'>delete</mat-icon>
+            </div>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+

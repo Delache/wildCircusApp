@@ -2,7 +2,7 @@ import { PriceService } from '../../shared/services/price.service';
 import { Price } from '../../shared/models/price';
 import { User } from '../../shared/models/user';
 import { UserService } from '../../shared/services/user.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 
 
 @Component({
@@ -13,16 +13,16 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PriceComponent implements OnInit {
 
   constructor(private priceService: PriceService,
-              private userService: UserService) { }
+              private userService: UserService,
+              private changeDetectorRefs: ChangeDetectorRef) { }
     user: User;
     prices: Price[];
     addOption: boolean;
-    displayedColumns: string[] = ['type', 'category', 'value'];
+    displayedColumns: string[] = ['type', 'category', 'value', 'id' ];
 
     ngOnInit() {
       this.addOption = true;
-      this.priceService.getPrices().subscribe((price) => {this.prices = price; });
-
+      this.refresh();
       if (this.userService.user !== undefined) {
         this.user = this.userService.user;
         if (this.user.role === 'admin') {
@@ -31,10 +31,13 @@ export class PriceComponent implements OnInit {
       }
     }
 
-onDeletePrice(index: number, i: number) {
-      this.priceService.deletePrice(index).subscribe(() => {
-        this.prices.splice(i, 1);
-        this.priceService.openSnackBar('Tranche', 'Supprimée');
-      } );
+    refresh() {
+      this.priceService.getPrices().subscribe((price) => {this.prices = price; });
     }
+    onDeletePrice(index: number) {
+      this.priceService.deletePrice(index).subscribe(() => {
+      this.priceService.openSnackBar('Tranche', 'Supprimée');
+      this.refresh();
+    } );
+  }
 }

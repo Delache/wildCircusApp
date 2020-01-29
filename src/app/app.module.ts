@@ -9,13 +9,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './shared/modules/angular-material.module';
 import { LayoutModule } from '@angular/cdk/layout';
 import { LogInterceptor } from './core/log.interceptor';
-
-
+import { PresentationComponent } from './pages/presentation/presentation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavComponent,
+    PresentationComponent,
   ],
   imports: [
     BrowserModule,
