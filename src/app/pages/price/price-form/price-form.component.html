@@ -1,0 +1,15 @@
+<form [formGroup]="priceForm" (ngSubmit)="onSubmitPriceForm()">
+  <mat-form-field>
+    <input  matInput type='text' placeholder="Age" formControlName='type'>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type='text' placeholder="Categorie" formControlName='category'>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type='number' placeholder="Prix" formControlName='value'>
+  </mat-form-field>
+
+  <button mat-button type="submit" [disabled]="!priceForm.valid"><mat-icon>add</mat-icon></button>
+</form>

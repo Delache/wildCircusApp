@@ -8,14 +8,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './shared/modules/angular-material.module';
 import { LayoutModule } from '@angular/cdk/layout';
-
 import { LogInterceptor } from './core/log.interceptor';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainNavComponent
+    MainNavComponent,
   ],
   imports: [
     BrowserModule,

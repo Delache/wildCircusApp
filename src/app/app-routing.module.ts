@@ -5,11 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: 'accueil', pathMatch: 'full'},
-  {path: 'accueil', component : MainNavComponent},
+
+  { path: '', component : MainNavComponent, children: [
+    { path: 'tarifs', loadChildren: () => import('./pages/price/price.module').then(m => m.PriceModule) }, ]
+  },
   { path: 'auth', loadChildren: () =>  import('./components/auth/auth.module').then(m  => m.AuthModule) },
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
