@@ -1,0 +1,29 @@
+<form [formGroup]="signInForm" (ngSubmit)="userConnexion()">
+  <div class="example-container boxForm">
+    <p class="top">Connexion</p>
+
+    <mat-form-field>
+      <input matInput placeholder="Email" type="text" name="login" formControlName='email'/>
+    </mat-form-field>
+    <div *ngIf="signInForm.get('email').errors && !signInForm.get('email').pristine" class="error">
+      <div [hidden]="!signInForm.get('email').errors.required">Ce champ est requis.</div>
+      <div [hidden]="!signInForm.get('email').invalid">Votre email est invalide.</div>
+    </div>
+
+    <mat-form-field>
+      <input matInput placeholder="Mot de passe" type="password" formControlName="password">
+    </mat-form-field>
+    <div *ngIf="signInForm.get('password').errors && !signInForm.get('password').pristine" class="error">
+      <div [hidden]="!signInForm.get('password').errors.required">Ce champ est requis.</div>
+    </div>
+
+    <div class="container">
+      <button mat-flat-button type="submit" [disabled]="!signInForm.valid">
+          Se connecter
+      </button>
+    </div>
+      <p>
+        <a routerLink="/auth/inscription">S'inscrire ?</a>
+      </p>
+  </div>
+</form>
