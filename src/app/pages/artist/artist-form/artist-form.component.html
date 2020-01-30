@@ -2,7 +2,7 @@
         method="post" action="/file" enctype="multipart/form-data">
   <div class="example-container">
     <div class="imgContainer">
-      <img src="../../../../../../assets/images/close.png" (click)="onClose()" />
+      <mat-icon (click)='onClose()'>close</mat-icon>
     </div>
 
     <mat-form-field>
@@ -25,7 +25,7 @@
     <input style="display:none" formControlName="link" type="file" accept=".jpg"
     (change)="onFileSelect($event)" #file>
     <div class='up'>
-      <button type="button" (click)="file.click()"
+      <button mat-button type="button" (click)="file.click()"
       [ngClass]="{ 'is-invalid': formSubmitted && f.import.errors }">Veuillez sélectionner un fichier</button>
       <div class='fileName' *ngIf="fileName">{{fileName}}</div>
     </div>
@@ -36,8 +36,8 @@
     </mat-error>
 
     <div class="container">
-      <button mat-flat-button type="button" (click)="onReset()">Effacer</button>
-      <button mat-flat-button type="submit" [disabled]="!uploadForm.valid">Envoyer</button>
+      <button mat-button type="button" (click)="onReset()">Effacer</button>
+      <button mat-button type="submit" [disabled]="!uploadForm.valid">Envoyer</button>
     </div>
   </div>
 </form>

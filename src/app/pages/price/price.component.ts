@@ -2,7 +2,7 @@ import { PriceService } from '../../shared/services/price.service';
 import { Price } from '../../shared/models/price';
 import { User } from '../../shared/models/user';
 import { UserService } from '../../shared/services/user.service';
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 
 @Component({
@@ -13,8 +13,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 export class PriceComponent implements OnInit {
 
   constructor(private priceService: PriceService,
-              private userService: UserService,
-              private changeDetectorRefs: ChangeDetectorRef) { }
+              private userService: UserService) { }
     user: User;
     prices: Price[];
     adminOption: boolean;

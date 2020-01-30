@@ -52,10 +52,8 @@
         </button>
         <h1>Wild Circus</h1>
         <div>
-          <a routerLink="/auth" *ngIf="!connected">	<mat-icon>person</mat-icon></a>
-        <div *ngIf="connected">
-          <a (click)='onLogout()' ><mat-icon>meeting_room</mat-icon></a>
-        </div>
+          <a routerLink="/auth" *ngIf="!adminOption">	<mat-icon>person</mat-icon></a>
+          <a (click)='onLogout()' *ngIf="adminOption" ><mat-icon>meeting_room</mat-icon></a>
       </div>
     </mat-toolbar>
     <router-outlet></router-outlet>

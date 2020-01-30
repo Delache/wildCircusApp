@@ -9,14 +9,12 @@ const routes: Routes = [
 
   { path: '', component : MainNavComponent, children: [
     { path: '', redirectTo: 'presentation', pathMatch: 'full'},
+    { path: 'auth', loadChildren: () =>  import('./components/auth/auth.module').then(m  => m.AuthModule) },
     { path: 'presentation', component: PresentationComponent},
     { path: 'tarifs', loadChildren: () => import('./pages/price/price.module').then(m => m.PriceModule) },
-    // tslint:disable-next-line: max-line-length
-    { path: 'representations', loadChildren: () => import('./pages/representation/representation.module').then(m => m.RepresentationModule) }, ]
-  },
-  { path: 'auth', loadChildren: () =>  import('./components/auth/auth.module').then(m  => m.AuthModule) },
-
-  { path: 'artistes', loadChildren: () => import('./pages/artist/artist.module').then(m => m.ArtistModule) },
+    { path: 'representations', loadChildren:
+    () => import('./pages/representation/representation.module').then(m => m.RepresentationModule) },
+    { path: 'artistes', loadChildren: () => import('./pages/artist/artist.module').then(m => m.ArtistModule) }, ] },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

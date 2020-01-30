@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 
 import { ArtistRoutingModule } from './artist-routing.module';
 import { ArtistComponent } from './artist.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 
 
@@ -17,7 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ArtistRoutingModule,
     AngularMaterialModule,
     ReactiveFormsModule,
-    NgbModule,
+    MDBBootstrapModule,
   ]
 })
 export class ArtistModule { }

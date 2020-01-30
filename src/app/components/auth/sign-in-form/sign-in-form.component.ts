@@ -14,6 +14,7 @@ import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 export class SignInFormComponent implements OnInit {
 
   signInForm: FormGroup;
+  connected = true;
 
   constructor(private router: Router,
               private formbuilder: FormBuilder,

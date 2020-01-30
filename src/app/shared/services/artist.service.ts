@@ -14,8 +14,8 @@ static URL = environment.url + '/artists';
 
   constructor(private http: HttpClient) { }
 
-getAllArtist(): Observable<Document[]> {
-  return this.http.get<Document[]>(ArtistService.URL);
+getAllArtist(): Observable<Artist[]> {
+  return this.http.get<Artist[]>(ArtistService.URL);
 }
 
 public create(fd: FormData): Observable<any> {

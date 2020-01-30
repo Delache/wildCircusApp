@@ -13,7 +13,7 @@ import { User } from '../../shared/models/user';
   styleUrls: ['./main-nav.component.scss']
 })
 export class MainNavComponent implements OnInit {
-  connected: boolean;
+  adminOption: boolean;
   user: User;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -31,7 +31,7 @@ export class MainNavComponent implements OnInit {
       if (this.userService.user !== undefined) {
         this.user = this.userService.user;
         if ( this.user.role === 'admin') {
-          this.connected = true;
+          this.adminOption = true;
         }
       }
     }

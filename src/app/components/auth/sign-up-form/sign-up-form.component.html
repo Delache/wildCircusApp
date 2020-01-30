@@ -39,12 +39,10 @@
     </div>
 
     <div class="container">
-      <button mat-flat-button type="submit" [disabled]="!signUpForm.valid">
+      <button mat-flat-button routerLink="/auth/connexion">Déjà inscrit ?</button>
+      <button mat-button type="submit" [disabled]="!signUpForm.valid">
         S'inscrire
       </button>
-    </div>
-    <p>
-      <a routerLink="/auth/connexion">Déjà inscrit ?</a>
-    </p>
+   </div>
   </div>
 </form>

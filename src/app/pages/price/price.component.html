@@ -1,9 +1,9 @@
 <div class='container'>
   <div  *ngFor="let item of prices">
     <mat-card>
-      <div>{{item.type}}</div>
-      <div>{{item.category}}</div>
-      <div>{{item.value}} €</div>
+      <div class='item'>{{item.type}}</div>
+      <div class='item'>{{item.category}}</div>
+      <div class='item'>{{item.value}} €</div>
       <mat-icon *ngIf="adminOption" (click)='onDeletePrice(item.id)'>delete</mat-icon>
     </mat-card>
   </div>

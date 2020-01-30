@@ -11,7 +11,7 @@
       <textarea matInput placeholder="Adresses :" formControlName='address'>
       </textarea>
     </mat-form-field>
-    
+
     <mat-form-field>
       <input matInput id='time' type='time' placeholder="Heure et date du spectacle" formControlName='time'>
     </mat-form-field>
@@ -24,8 +24,8 @@
     </mat-form-field>
 
     <div class="container">
-      <button mat-flat-button class="delete-button" type="button" (click)="resetForm()">Effacer</button>
-      <button mat-flat-button class="validate-button" type="submit" [disabled]="!representationForm.valid">Envoyer</button>
+      <button mat-button class="delete-button" type="button" (click)="resetForm()">Effacer</button>
+      <button mat-button class="validate-button" type="submit" [disabled]="!representationForm.valid">Envoyer</button>
     </div>
   </div>
 </form>
