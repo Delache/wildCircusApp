@@ -36,7 +36,7 @@ export class MainNavComponent implements OnInit {
       }
     }
     onLogout() {
-      localStorage.removeItem('JWT-TOKEN');
+      localStorage.clear();
       this.userService.user = null;
       this.router.navigate(['/presentation']);
     }

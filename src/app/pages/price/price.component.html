@@ -1,31 +1,11 @@
-<table mat-table [dataSource]="prices" class="mat-elevation-z8">
-  <ng-container matColumnDef="type">
-    <th mat-header-cell *matHeaderCellDef> Categorie </th>
-    <td mat-cell *matCellDef="let element"> {{element.type}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="category">
-    <th mat-header-cell *matHeaderCellDef> Emplacement </th>
-    <td mat-cell *matCellDef="let element"> {{element.category}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="value">
-    <th mat-header-cell *matHeaderCellDef> Tarif </th>
-    <td mat-cell *matCellDef="let element"> {{element.value}} </td>
-  </ng-container>
-
-  <div class='delete' *ngIf="addOption">
-    <ng-container matColumnDef="id" *ngIf="addOption">
-        <th mat-header-cell *matHeaderCellDef> </th>
-        <td mat-cell *matCellDef="let element; let i = index">
-          <mat-icon  (click)='onDeletePrice(element.id)'>delete</mat-icon>
-        </td>
-    </ng-container>
+<div class='container'>
+  <div  *ngFor="let item of prices">
+    <mat-card>
+      <div>{{item.type}}</div>
+      <div>{{item.category}}</div>
+      <div>{{item.value}} €</div>
+      <mat-icon *ngIf="adminOption" (click)='onDeletePrice(item.id)'>delete</mat-icon>
+    </mat-card>
   </div>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-
-<app-price-form *ngIf="addOption"></app-price-form>
-
+  <app-price-form *ngIf="adminOption"></app-price-form>
+</div>

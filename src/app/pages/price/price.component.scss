@@ -1,4 +1,10 @@
-.mat-table {
-  margin: 10vh auto 0 auto;
-  width: 80%;
+.container{
+  margin-top:5vh;
+}
+.mat-card{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom:5px;
+  background-color: #62CCBF;
+  color: white
 }

@@ -17,7 +17,7 @@ export class PriceComponent implements OnInit {
               private changeDetectorRefs: ChangeDetectorRef) { }
     user: User;
     prices: Price[];
-    addOption: boolean;
+    adminOption: boolean;
     displayedColumns: string[];
 
     ngOnInit() {
@@ -25,7 +25,7 @@ export class PriceComponent implements OnInit {
       if (this.userService.user !== null ) {
         this.user = this.userService.user;
         if (this.user.role === 'admin') {
-          this.addOption = true;
+          this.adminOption = true;
           this.displayedColumns = ['type', 'category', 'value', 'id' ];
         } else {
           this.displayedColumns = ['type', 'category', 'value' ];

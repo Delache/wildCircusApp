@@ -5,11 +5,39 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/presentation">Présentation</a>
-      <a mat-list-item routerLink="/representations">Représentations</a>
-      <a mat-list-item routerLink="/artistes">Artistes</a>
-      <a mat-list-item routerLink="/tarifs">Tarifs</a>
-      <a mat-list-item >Contactez-nous</a>
+
+
+      <a mat-list-item routerLink="/presentation">
+        <div class="item" routerLinkActive="is-active">
+          Présentation
+        </div>
+      </a>
+
+      <a mat-list-item routerLink="/representations">
+        <div class="item" routerLinkActive="is-active">
+          Représentations
+        </div>
+      </a>
+
+      <a mat-list-item routerLink="/artistes">
+        <div class="item" routerLinkActive="is-active">
+          Artistes
+        </div>
+      </a>
+
+      <a mat-list-item routerLink="/tarifs">
+        <div class="item" routerLinkActive="is-active">
+          Tarifs
+        </div>
+      </a>
+
+      <a mat-list-item routerLink="/tarifs">
+        <div class="item" routerLinkActive="is-active">
+          Contactez-nous
+        </div>
+      </a>
+
+
     </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
@@ -22,11 +50,10 @@
           *ngIf="isHandset$ | async">
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
-        <div>Wild Circus</div>
+        <h1>Wild Circus</h1>
         <div>
-          <a routerLink="/auth" *ngIf="!connected">Connexion</a>
+          <a routerLink="/auth" *ngIf="!connected">	<mat-icon>person</mat-icon></a>
         <div *ngIf="connected">
-          {{user.username}}
           <a (click)='onLogout()' ><mat-icon>meeting_room</mat-icon></a>
         </div>
       </div>

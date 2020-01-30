@@ -1,20 +1,21 @@
-<div class="container" id="ressources">
-  <h4 class="title">Toutes nos dates</h4>
-
-  <div class="recherche">
-    <mat-form-field appearance="outline">
+<div class='container'>
+  <div class='box'>
+    <mat-form-field >
       <input placeholder='Entrez votre ville' type="search" matInput [(ngModel)]="searchWord">
       <mat-icon (click)="search(searchWord)" matSuffix>search</mat-icon>
+      <blockquote *ngIf="representations?.length == 0">Nous passerons rapidement près de chez vous</blockquote>
     </mat-form-field>
+    <button class='add' mat-button *ngIf='adminOption' routerLink='/representations/nouvelle'> Ajouter une date </button>
   </div>
-  <blockquote *ngIf="representations?.length == 0">Nous passerons rapidement près de chez vous</blockquote>
-
   <ul *ngFor="let data of representations; let i = index">
-    <div class="document" [ngClass]="data.full ? {color : 'red'}:{color : 'black'} ">
-      <span class='city'  >{{data.city}} </span> Le {{data.date | date :'dd/MM/yyyy'}} à {{data.time}} {{data.adress}}
+    <mat-card [ngStyle]="{'background-color': data.full?'#FAA5A5':'#62CCBF'}">
+      <div class='item'>{{data.city}}</div>
+      <div class='item'>{{data.date | date :'dd/MM/yyyy'}}</div>
+      <div class='item'>{{data.time}} </div>
+      <div class='item'>{{data.adress}}</div>
       <mat-slide-toggle  *ngIf="adminOption" [checked]="(data.full)?true:false" (change)="onChange($event, i)">Complet</mat-slide-toggle>
       <mat-icon class='admin' *ngIf="adminOption" (click)='onDeleteFile(data.id, i)'>delete</mat-icon>
-    </div>
+    </mat-card>
   </ul>
-  <button mat-button *ngIf='adminOption' routerLink='/representations/nouvelle'> Ajouter une date </button>
 </div>
+

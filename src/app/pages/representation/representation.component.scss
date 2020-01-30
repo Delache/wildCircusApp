@@ -1,3 +1,35 @@
 .city{
   font-weight: bold;
 }
+.container{
+  margin-top:2vh;
+  box-sizing: border-box;
+}
+.mat-card{
+  margin-bottom:5px;
+  color: white;
+  display: flex;
+}
+.mat-form-field{
+  width:60%;
+  margin: auto;
+
+}
+.box{
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+}
+.add{
+  margin-bottom: 10px;
+  padding: 5px;
+  color:#756D4F;
+}
+.add:hover{
+color: white;
+background-color:#5FB3A8;
+}
+.item{
+  flex-grow: 1;
+  flex-basis: 0;
+}
