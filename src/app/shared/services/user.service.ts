@@ -13,13 +13,11 @@ export class UserService {
   static URL = environment.url + '';
   static URL_AUTH = environment.url + '/auth';
 
-  // to delete data user for activate the authentification
-  // tslint:disable-next-line: max-line-length
   user: User;
   token: string;
 
   public getMe() {
-    return this.http.get(UserService.URL + '/user/me').pipe(
+    return this.http.get(UserService.URL + '/users/me').pipe(
       tap((user: User) => {
         this.user = user;
       })
@@ -35,7 +33,7 @@ export class UserService {
   }
 
   postUpdateUserForm(user: User, id: number) {
-    return this.http.put(UserService.URL + `/user/${id}`, user);
+    return this.http.put(UserService.URL + `/users/${id}`, user);
   }
 
   public connexion(user: User) {

@@ -29,7 +29,7 @@ export class SignInFormComponent implements OnInit {
 
   userConnexion() {
     this.userService.connexion(this.signInForm.value).subscribe(() => {
-      this.router.navigate(['/']);
+      this.router.navigate(['/presentation']);
     });
   }
 }

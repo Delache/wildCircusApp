@@ -21,7 +21,6 @@ export class PriceComponent implements OnInit {
     displayedColumns: string[] = ['type', 'category', 'value', 'id' ];
 
     ngOnInit() {
-      this.addOption = true;
       this.refresh();
       if (this.userService.user !== undefined) {
         this.user = this.userService.user;

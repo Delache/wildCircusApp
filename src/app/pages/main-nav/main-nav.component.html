@@ -12,24 +12,26 @@
       <a mat-list-item >Contactez-nous</a>
 
     </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar class='navbar'>
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <div>Wild Circus</div>
-      <div>
-        <span>Home</span>
-        <span>Services</span>
-        <a routerLink="/auth"><mat-icon>meeting_room</mat-icon></a>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar class='navbar'>
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <div>Wild Circus</div>
+        <div>
+          <a routerLink="/auth" *ngIf="!connected">Connexion</a>
+        <div *ngIf="connected">
+          {{user.username}}
+          <a (click)='onLogout()' ><mat-icon>meeting_room</mat-icon></a>
+        </div>
       </div>
     </mat-toolbar>
-   <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
