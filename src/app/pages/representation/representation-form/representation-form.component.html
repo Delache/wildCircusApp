@@ -1,1 +1,32 @@
-<p>representation-form works!</p>
+<form [formGroup]="representationForm" (ngSubmit)="onSubmitRepresentationForm()">
+  <div class="example-container">
+    <div class="imgContainer">
+      <mat-icon (click)='onClose()'>close</mat-icon>
+    </div>
+    <mat-form-field>
+      <input matInput placeholder="Ville :" type="text" formControlName='city'>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Adresses :" formControlName='address'>
+      </textarea>
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <input matInput id='time' type='time' placeholder="Heure et date de l'évènement" formControlName='time'>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" label="Date de l'évènement" placeholder="jj/mm/aaaa" formControlName='date'>
+      <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="!representationForm.valid">Entrez une date valide.</mat-error>
+    </mat-form-field>
+
+    <div class="container">
+      <button mat-flat-button class="delete-button" type="button" (click)="resetForm()">Effacer</button>
+      <button mat-flat-button class="validate-button" type="submit" [disabled]="!representationForm.valid">Envoyer</button>
+    </div>
+  </div>
+</form>

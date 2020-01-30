@@ -18,14 +18,17 @@ export class PriceComponent implements OnInit {
     user: User;
     prices: Price[];
     addOption: boolean;
-    displayedColumns: string[] = ['type', 'category', 'value', 'id' ];
+    displayedColumns: string[];
 
     ngOnInit() {
       this.refresh();
-      if (this.userService.user !== undefined) {
+      if (this.userService.user !== null ) {
         this.user = this.userService.user;
         if (this.user.role === 'admin') {
           this.addOption = true;
+          this.displayedColumns = ['type', 'category', 'value', 'id' ];
+        } else {
+          this.displayedColumns = ['type', 'category', 'value' ];
         }
       }
     }
