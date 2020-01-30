@@ -15,6 +15,8 @@ const routes: Routes = [
     { path: 'representations', loadChildren: () => import('./pages/representation/representation.module').then(m => m.RepresentationModule) }, ]
   },
   { path: 'auth', loadChildren: () =>  import('./components/auth/auth.module').then(m  => m.AuthModule) },
+
+  { path: 'artistes', loadChildren: () => import('./pages/artist/artist.module').then(m => m.ArtistModule) },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,0 +1,43 @@
+<form [formGroup]="uploadForm" (ngSubmit)="onFormSubmit()"
+        method="post" action="/file" enctype="multipart/form-data">
+  <div class="example-container">
+    <div class="imgContainer">
+      <img src="../../../../../../assets/images/close.png" (click)="onClose()" />
+    </div>
+
+    <mat-form-field>
+      <input matInput placeholder="Surnom :" type="text" formControlName='username' />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Specialité :" type="text" formControlName='speciality' />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Devise :" type="text" formControlName='motto' />
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Description :" formControlName='description'>
+      </textarea>
+    </mat-form-field>
+
+    <input style="display:none" formControlName="link" type="file" accept=".jpg"
+    (change)="onFileSelect($event)" #file>
+    <div class='up'>
+      <button type="button" (click)="file.click()"
+      [ngClass]="{ 'is-invalid': formSubmitted && f.import.errors }">Veuillez sélectionner un fichier</button>
+      <div class='fileName' *ngIf="fileName">{{fileName}}</div>
+    </div>
+    <mat-error *ngIf="formSubmitted && f.importOne.errors">
+      <span *ngIf="f.importOne.errors.required">
+        Le fichier sous format PDF est requis
+      </span>
+    </mat-error>
+
+    <div class="container">
+      <button mat-flat-button type="button" (click)="onReset()">Effacer</button>
+      <button mat-flat-button type="submit" [disabled]="!uploadForm.valid">Envoyer</button>
+    </div>
+  </div>
+</form>
