@@ -1,0 +1,13 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{artist.username}}</mat-card-title>
+    <mat-card-subtitle>{{artist.speciality}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="artist.link | serverUrl" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>
+     {{artist.description}}
+    </p>
+  </mat-card-content>
+</mat-card>

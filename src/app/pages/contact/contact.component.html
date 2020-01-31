@@ -1,0 +1,22 @@
+
+  <div class="container">
+    <div class='flex'>
+      <h2>Nous contacter</h2>
+      <div class="form-contact">
+        <p><span>Téléphone</span>: 06 11 12 55 74</p>
+        <p><span>Email: </span><a href="contact@wild-circus.com">contact@wild-circus.com</a></p>
+      </div>
+    </div>
+    <div class="newsletter flex">
+      <h2>S'abonner à notre newsletter</h2>
+    <form [formGroup]="mailForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <input formControlName="EMAIL" matInput placeholder="Email *">
+          <div *ngIf="mailForm.get('EMAIL').errors && !mailForm.get('EMAIL').pristine" class="error">
+            <div [hidden]="!mailForm.invalid">Veuillez saisir un mail valide.</div>
+          </div>
+        </mat-form-field>
+        <button mat-button type="submit" [disabled]=!mailForm.valid>S'abonner</button>
+      </form>
+    </div>
+  </div>

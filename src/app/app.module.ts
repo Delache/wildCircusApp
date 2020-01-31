@@ -9,6 +9,8 @@ import { AngularMaterialModule } from './shared/modules/angular-material.module'
 import { LayoutModule } from '@angular/cdk/layout';
 import { LogInterceptor } from './core/log.interceptor';
 import { PresentationComponent } from './pages/presentation/presentation.component';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,9 @@ import { PresentationComponent } from './pages/presentation/presentation.compone
     LayoutModule,
     HttpClientModule,
     HttpClientJsonpModule,
+    TooltipModule.forRoot(),
+    CarouselModule.forRoot(),
+
   ],
   providers: [
     {

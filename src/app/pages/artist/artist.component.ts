@@ -13,18 +13,17 @@ import { ArtistService } from '../../shared/services/artist.service';
 export class ArtistComponent implements OnInit {
   artists: Artist[];
   user: User;
-  addOption: boolean;
+  adminOption: boolean;
   slides: any = [[]];
 
   constructor( private userService: UserService,
                private artistService: ArtistService ) { }
 
   ngOnInit() {
-    this.addOption = true;
     if (this.userService.user !== undefined ) {
       this.user = this.userService.user;
       if (this.user.role === 'admin') {
-        this.addOption = true;
+        this.adminOption = true;
       }
     }
     this.artistService.getAllArtist().subscribe((datas) => this.artists = datas);

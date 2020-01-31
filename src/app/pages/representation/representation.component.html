@@ -12,7 +12,7 @@
       <div class='item'>{{data.city}}</div>
       <div class='item'>{{data.date | date :'dd/MM/yyyy'}}</div>
       <div class='item'>{{data.time}} </div>
-      <div class='item'>{{data.adress}}</div>
+      <div class='item'>{{data.address}}</div>
       <mat-slide-toggle  *ngIf="adminOption" [checked]="(data.full)?true:false" (change)="onChange($event, i)">Complet</mat-slide-toggle>
       <mat-icon class='admin' *ngIf="adminOption" (click)='onDeleteFile(data.id, i)'>delete</mat-icon>
     </mat-card>
