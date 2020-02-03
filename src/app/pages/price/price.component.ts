@@ -3,6 +3,8 @@ import { Price } from '../../shared/models/price';
 import { User } from '../../shared/models/user';
 import { UserService } from '../../shared/services/user.service';
 import { Component, OnInit} from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 
 @Component({
@@ -13,11 +15,13 @@ import { Component, OnInit} from '@angular/core';
 export class PriceComponent implements OnInit {
 
   constructor(private priceService: PriceService,
-              private userService: UserService) { }
+              private userService: UserService,
+              private formbuilder: FormBuilder) { }
     user: User;
     prices: Price[];
     adminOption: boolean;
     displayedColumns: string[];
+    priceForm: FormGroup;
 
     ngOnInit() {
       this.refresh();
@@ -30,15 +34,32 @@ export class PriceComponent implements OnInit {
           this.displayedColumns = ['type', 'category', 'value' ];
         }
       }
+      this.priceForm = this.formbuilder.group({
+        type:  ['', Validators.required],
+        category:  ['', Validators.required],
+        value: ['', Validators.required]
+      });
     }
 
     refresh() {
       this.priceService.getPrices().subscribe((price) => {this.prices = price; });
     }
     onDeletePrice(index: number) {
+      this.prices.slice(index, 1);
       this.priceService.deletePrice(index).subscribe(() => {
       this.priceService.openSnackBar('Tranche', 'Supprimée');
       this.refresh();
-    } );
+      });
+    }
+    resetForm() {
+      this.priceForm.reset();
+    }
+
+    onSubmitPriceForm() {
+      this.priceService.createPrice(this.priceForm.value).subscribe(() => {
+        this.prices.push(this.priceForm.value);
+        this.priceService.openSnackBar('Tranche', 'Ajoutée');
+        this.resetForm();  });
   }
+
 }

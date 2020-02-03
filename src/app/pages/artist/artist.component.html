@@ -1,8 +1,10 @@
 <div class='container'>
   <carousel>
-    <div class="mat-parent carousel-inner" align="center" role="listbox">
-      <slide *ngFor="let artist of artists">
-       <app-artist-card [artist]='artist'></app-artist-card>
+    <div class="mat-parent carousel-inner" align="center"
+         role="listbox"
+         *ngFor="let artist of artists; let i = index">
+      <slide>
+        <app-artist-card [artist]='artist'></app-artist-card>
       </slide>
     </div>
   </carousel>
